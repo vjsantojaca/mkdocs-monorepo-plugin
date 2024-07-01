@@ -172,13 +172,6 @@ class IncludeNavLoader:
             )
             raise SystemExit(1)
 
-        if not self.absNavPath.startswith(self.rootDir):
-            log.critical(
-                "[mkdocs-monorepo] The mkdocs file {} is outside of the current directory. ".format(self.absNavPath) +
-                "Please move the file and try again."
-            )
-            raise SystemExit(1)
-
         try:
             with open(self.absNavPath, 'rb') as f:
                 self.navYaml = yaml_load(f)
